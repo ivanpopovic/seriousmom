@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/css/global.css"> <!-- Compiled style -->
-</head>
-
-<body>
-<div id="map"></div>
-<script src="./assets/js/vendor.js"></script>
-<script src="./assets/js/main.js"></script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuG19zDLAMN_N4r6A-LkpOe--EsMnI5XM&callback=initMap"></script>
-</body>
-
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="assets/css/global.css"> <!-- Compiled style -->
+    </head>
+    <body>
+        <div class="header">
+            <ul id="slide-out" class="side-nav">
+                <li>
+                    <div class="userView">
+                        <div class="background">
+                            <img src="assets/img/profile_background_default.jpg">
+                        </div>
+                        <a href="#!user"><img class="circle" src="assets/img/profile_default.jpg"></a>
+                        <a href="#!name"><span class="white-color name">John Doe</span></a>
+                        <a href="#!email"><span class="email">jdandturk@gmail.com</span></a>
+                    </div>
+                </li>
+                <div class="divider"></div>
+                <div class="todo-wrapper">
+                </div>
+            </ul>
+            <a href="#" data-activates="slide-out" class="button__show-todo btn-floating btn-large waves-effect waves-light red"><i class="fa fa-facebook"></i></a>
+        </div>
+        <div id="map"></div>
+        <script src="./assets/js/vendor.js"></script>
+        <script src="./assets/js/main.js"></script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuG19zDLAMN_N4r6A-LkpOe--EsMnI5XM&callback=initMap"></script>
+    </body>
 </html>
