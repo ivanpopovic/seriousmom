@@ -83,6 +83,7 @@ Thumbs.db
 .svn
 .nvm-version
 node_modules
+bower_components
 npm-debug.log
 debug.log
 /tags

@@ -59,6 +59,7 @@ module.exports = {
 				{
 					src: [
 						"<%= paths.vendor.css %>",
+						"./bower_components/materialize/dist/css/materialize.css",
 						"<%= paths.tmp.folder.assets.css %>/SassFiles.css",
 						"<%= paths.src.files.css %>"
 					],
@@ -71,7 +72,9 @@ module.exports = {
 		all: {
 			dest: "<%= paths.tmp.folder.assets.js %>/bower.js",
 			bowerOptions: {},
-			dependencies: {},
+			dependencies: {
+				'materialize': 'jquery'
+			},
 			process: function (src) {
 				"\n;(function( window, undefined ){ \n 'use strict';\n\n" +
 				src +
