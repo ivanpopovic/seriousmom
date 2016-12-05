@@ -123,7 +123,8 @@ module.exports = {
 					src: [
 						"img/**",
 						"svg/**",
-						"json/**"
+						"json/**",
+						"fonts/**",
 					],
 					dest: "<%= paths.tmp.folder.assets.base %>"
 				},
@@ -146,7 +147,8 @@ module.exports = {
 					src: [
 						"img/**",
 						"svg/**",
-						"json/**"
+						"json/**",
+						"fonts/**",
 					],
 					dest: "<%= paths.dest.folder.assets.base %>"
 				},
