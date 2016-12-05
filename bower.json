@@ -1,0 +1,20 @@
+{
+  "name": "seriousmom",
+  "description": "Rapidprotoyping projec from FH Salzburg",
+  "main": "Gruntfile.js",
+  "authors": [
+    "JPeer264 <jan.oster94@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ivanpopovic/seriousmom",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "materialize": "^0.97.8"
+  }
+}
