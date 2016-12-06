@@ -4,12 +4,22 @@ function initMap() {
   var pos;
   var map;
   var markers = [];
-  var marker_infobox = "test";
+  var marker_infobox = '<div class="row"><form class="col s12" method=post><div class="row">'+
+                        '<div class="input-field col s6">'+
+                        '<input id="first_name" type="text" class="validate">'+
+                        '<label for="first_name">Title</label>'+
+                        '</div>'+
+                        '<div class="input-field col s12">'+
+                        '<textarea class="materialize-textarea" id="textarea-todo"></textarea>'+
+                        '<label for="textarea1">Description</label>'+
+                        '<button class="waves-effect waves-light btn" type="submit">Create</button>'+
+                        '</div></div></form>'+
+                        '</div>';
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: {
-      lat: -34.397,
-      lng: 150.644
+      lat: 47.722942,
+      lng: 13.089094
     },
     zoom: 16
   });
@@ -43,21 +53,29 @@ function initMap() {
     var marker = new google.maps.Marker({
       position: location,
       map: map,
-      animation: google.maps.Animation.DROP
+      animation: google.maps.Animation.DROP,
+      title: ''
+
     });
+    console.log(marker);
     markers.push(marker);
+    if(markers.length > 1){
+      if(markers[markers.length - 2].title === ''){
+        markers[markers.length - 2].setMap(null)
+      }
+    }
     markers[markers.length - 1].addListener('click', function(event) {
+      marker.title = $('textarea#textarea-todo').val('');
       infowindow.open(map, marker);
+      console.log(this.position);
     });
+    infowindow.open(map, marker);
 
   }
 
   map.addListener('click', function(event) {
     addMarker(event.latLng);
   });
-
-
-
 
 }
 
