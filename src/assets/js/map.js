@@ -1,9 +1,11 @@
 var map;
+var markers_todo = [];
 
 function initMap() {
   var pos;
   var map;
   var markers = [];
+
   var marker_infobox = '<div class="row"><form class="col s12"><div class="row">' +
     '<div class="input-field col s6">' +
     '<input id="marker-title" type="text" class="validate">' +
@@ -78,20 +80,19 @@ function initMap() {
 
   $(document).on('click', '#submit-todo', function() {
     console.log($('textarea#textarea-todo').val());
-    $.ajax({
-      url: 'https://api.seriousmom.jpeer.at/api/marker/createmarkertodos',
-      data: {
+      var data = {
         lat: markers[markers.length - 1].position.lat.call(this),
         long: markers[markers.length - 1].position.lng.call(this),
         userid: 1,
         childid: 2,
         title: $('#marker-title').val(),
         todos: ["test"]
-      },
-      method: 'POST',
-      success: function(marker) {
-      }
-    });
+      };
+      markers_todo.push(data)
+      localStorage.setItem('markers_todo', JSON.stringify(markers_todo));
+
+      console.log(markers_todo)
+
   });
 }
 
