@@ -1,25 +1,9 @@
-.todo, .todo--delete {
-<<<<<<< HEAD
+.todo, .todo--check {
   border-bottom: 1px solid #e0e0e0;
 }
 
-.todo--delete {
-  background-color: rgba(red, .7);
-  cursor: pointer;
-  margin-bottom: -1px;
-  transition: margin-left .3s;
-
-  &:hover {
-    margin-left: -10px;
-  }
-
-  &:active {
-    margin-left: -500%;
-  }
-}
-
 .todo--check {
-  background-color: rgba(red, .4);
+  background-color: rgba(green, .4);
   cursor: pointer;
   margin-bottom: -1px;
   transition: margin-left .3s;
@@ -51,24 +35,6 @@
     color: white;
   }
 }
-=======
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.todo--delete {
-    background-color: rgba(red, .7);
-    cursor: pointer;
-    margin-bottom: -1px;
-    transition: margin-left .3s;
-
-    &:hover {
-        margin-left: -10px;
-    }
-
-    &:active {
-        margin-left: -500%;
-    }
-}
 
 .todo-wrapper {
     width: 83%;
@@ -86,4 +52,3 @@
         color: white;
     }
 }
->>>>>>> 06e09e9e10695975fd526a5000f633aed0a51ab3

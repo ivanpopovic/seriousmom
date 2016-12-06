@@ -14,7 +14,6 @@ if (navigator.geolocation) {
 
             lat = position.coords["latitude"];
             lng = position.coords["longitude"];
-            console.log(lat, lng)
         }, function (error) {
             console.log("Error: ", error);
         }, {
