@@ -57,7 +57,7 @@ module.exports = {
 		dev: {
 			options: {
 				hostname: "127.0.0.1",
-				port: 1337,
+				port: 6743,
 				base: "tmp"
 			}
 		},
@@ -96,7 +96,7 @@ module.exports = {
 			},
 			options: {
 				proxy: "<%= connect.dev.options.hostname %>:<%= connect.dev.options.port %>",
-				port: 1338,
+				port: 1339,
 				open: true,
 				watchTask: true,
 				notify: true,
