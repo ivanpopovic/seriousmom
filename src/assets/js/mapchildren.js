@@ -13,14 +13,6 @@ function initMap() {
     },
     zoom: 16
   });
-  /*
-   var infoWindow = new google.maps.InfoWindow({
-   map: map
-   });
-   var infowindow = new google.maps.InfoWindow({
-   content: marker_infobox
-   });
-   */
 
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
@@ -65,8 +57,6 @@ function initMap() {
     method: 'GET',
     success: function (marker) {
 
-      console.log(marker.markers);
-
       for (var x in marker.markers) {
 
         var markers = null;
@@ -74,18 +64,14 @@ function initMap() {
         var bounds = new google.maps.LatLngBounds();
 
         var myLatLng = {
-
           lat: marker.markers[x].lat,
           lng: marker.markers[x].long
-
         };
 
 
         Cookies.set('marker'+x, marker.markers[x]);
-        console.log(Cookies('marker'+x));
 
         markers = new google.maps.Marker({
-
           position: myLatLng,
           map: map,
           animation: google.maps.Animation.DROP,
@@ -98,18 +84,30 @@ function initMap() {
           infowindow.setContent(this.info);
           infowindow.open(map, this);
 
+          $('.todo-wrapper').empty();
+          $('.todo-delete-wrapper').empty();
+
+          infowindow.setContent(this.info);
+          infowindow.open(map, this);
+
+          $('.button__show-todo').sideNav('show');
+
+          console.log(marker.markers[x].todos);
+
+          for( var c in marker.markers[x].todos){
+
+            $('.todo-wrapper').append('<li><a href="#!" data-long="' + myLatLng.lng + '" data-lat="' + myLatLng.lat + '" data-todo-id="' + marker.markers[x].id + '" class="todo">' + marker.markers[x].todos[c].text + '</a></li>');
+            $('.todo-delete-wrapper').append('<li class="todo--check" data-todo-close-id="' + marker.markers[x].id + '"><i class="fa fa-check"></i></li>')
+          }
+
+          map.fitBounds(bounds);
+
         });
-
-        bounds.extend(myLatLng);
-
       }
 
-      map.fitBounds(bounds);
-
+      map.zoom(16);
     }
   });
-
-
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {

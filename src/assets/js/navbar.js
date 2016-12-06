@@ -7,7 +7,6 @@ var userid = 1;
 // initialize Materialize navbar
 $('.button__show-todo').sideNav();
 
-
 $.ajax({
     url: 'https://api.seriousmom.jpeer.at/api/usermarker/get/' + userid,
     method: 'GET',
@@ -29,7 +28,7 @@ $.ajax({
                 id = todo.id;
 
                 $todoWrapper.append('<li><a href="#!" data-long="' + long + '" data-lat="' + lat + '" data-todo-id="' + id + '" class="todo">' + todo.text + '</a></li>')
-                $todoDeleteWrapper.append('<li class="todo--delete" data-todo-close-id="' + id + '"><i class="fa fa-close"></i></li>')
+                $todoDeleteWrapper.append('<li class="todo--check" data-todo-close-id="' + id + '"><i class="fa fa-check"></i></li>')
             }
         }
 
