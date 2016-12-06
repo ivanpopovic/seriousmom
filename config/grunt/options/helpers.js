@@ -9,7 +9,8 @@ module.exports = {
 		js: {
 			files: "<%= paths.src.folder.assets.jss %>/*.js",
 			tasks: [
-				"concat:js"
+				"concat:js",
+				"copy",
 			]
 		},
 		oldBrowserCss: {

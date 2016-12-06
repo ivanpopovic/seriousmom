@@ -4,17 +4,17 @@ function initMap() {
   var pos;
   var map;
   var markers = [];
-  var marker_infobox = '<div class="row"><form class="col s12" method=post><div class="row">'+
-                        '<div class="input-field col s6">'+
-                        '<input id="first_name" type="text" class="validate">'+
-                        '<label for="first_name">Title</label>'+
-                        '</div>'+
-                        '<div class="input-field col s12">'+
-                        '<textarea class="materialize-textarea" id="textarea-todo"></textarea>'+
-                        '<label for="textarea1">Description</label>'+
-                        '<button class="waves-effect waves-light btn" type="submit">Create</button>'+
-                        '</div></div></form>'+
-                        '</div>';
+  var marker_infobox = '<div class="row"><form class="col s12"><div class="row">' +
+    '<div class="input-field col s6">' +
+    '<input id="marker-title" type="text" class="validate">' +
+    '<label for="marker-title">Title</label>' +
+    '</div>' +
+    '<div class="input-field col s12">' +
+    '<textarea class="materialize-textarea" id="textarea-todo"></textarea>' +
+    '<label for="textarea1">Description</label>' +
+    '<a id="submit-todo" class="waves-effect waves-light btn">Create</a>' +
+    '</div></div></form>' +
+    '</div>';
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: {
@@ -57,10 +57,9 @@ function initMap() {
       title: ''
 
     });
-    console.log(marker);
     markers.push(marker);
-    if(markers.length > 1){
-      if(markers[markers.length - 2].title === ''){
+    if (markers.length > 1) {
+      if (markers[markers.length - 2].title === '') {
         markers[markers.length - 2].setMap(null)
       }
     }
@@ -77,7 +76,25 @@ function initMap() {
     addMarker(event.latLng);
   });
 
+  $(document).on('click', '#submit-todo', function() {
+    $.ajax({
+      url: 'http://localhost:1337/api/marker/createmarkertodos',
+      data: {
+        lat: markers[markers.length - 1].position.lat.call(this),
+        long: markers[markers.length - 1].position.lng.call(this),
+        userid: 1,
+        childid: 2,
+        title: $('#marker-title').val(),
+        todos: [$('textarea#textarea-todo').val('')]
+      },
+      method: 'POST',
+      success: function(marker) {
+      }
+    });
+  });
 }
+
+
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
